@@ -1,0 +1,101 @@
+.perfil {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-perfil {
+  background-color: #1e293b;
+  padding: 20px;
+  width: 750px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.imagem-perfil{
+  display: flex;
+  align-items: flex-end;
+}
+
+.priv{
+  background-color: #01d696;
+  margin-left: -5%;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50px;
+}
+
+.informacoes-perfil {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.inf-label {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #888f9a;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.texto-inf-user {
+  font-size: 20px;
+}
+
+hr {
+  color: #05d08c;
+}
+
+.estatisticas-perfil {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.estatistica-quantidade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redesSociais {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.redes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.link-redes {
+  padding: 10px;
+  width: 160px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #888f9a;
+}
+
+.link-redes:hover {
+  opacity: 0.8;
+}
+
+.botao-add-rede {
+  background-color: #029b68;
+  padding: 8px;
+  border-radius: 50px;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+}
+
+.botao-add-rede:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}

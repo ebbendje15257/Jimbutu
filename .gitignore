@@ -1,0 +1,18 @@
+# Node.js / Backend
+node_modules/
+backend/node_modules/
+*.log
+.env
+.DS_Store
+
+# Frontend (React + Vite)
+frontend/*/node_modules/
+frontend/*/dist/
+frontend/*/build/
+frontend/*/.env
+frontend/*/coverage/
+
+# Geral
+*.local
+.cache
+.tmp

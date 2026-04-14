@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #0f172a;
+  color: white;
+}
+
+img {
+  object-fit: cover;
+  object-position: center;
+}
