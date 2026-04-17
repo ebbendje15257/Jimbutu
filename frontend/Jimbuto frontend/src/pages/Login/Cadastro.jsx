@@ -20,6 +20,7 @@ export default function Cadastro() {
   const [erroUser, setErroUser] = useState(false);
   const [erroPass, setErroPass] = useState(false);
   const [erroConfirmPass, setErroConfirmPass] = useState(false);
+  const [erroEmailexiste, setErroEmailexiste] = useState(false);
 
   const escolherImg = (e) => {
     const arquivo = e.target.files[0];
@@ -44,6 +45,7 @@ export default function Cadastro() {
     setErroUser(false);
     setErroPass(false);
     setErroConfirmPass(false);
+    setErroEmailexiste(false);
 
     if (!username.trim() || !pass.trim() || !cPassValue.trim() || !email.trim() || !pais.trim()) {
       setVazio(true);
@@ -79,7 +81,7 @@ export default function Cadastro() {
         },
       });
       if (resposta.status == 409) {
-        alert("Email já existente")
+        setErroEmailexiste(true);
       }
       else if (resposta.status == 201) {
         alert("Usuario criado com sucesso")
@@ -207,6 +209,11 @@ export default function Cadastro() {
         {erro && (
           <p className="error-msg" style={{ color: "red" }}>
             Erro no servidor. Tente novamente.
+          </p>
+        )}
+        {erroEmailexiste && (
+          <p className="error-msg" style={{ color: "red" }}>
+            Esse email já possui uma conta!.
           </p>
         )}
 

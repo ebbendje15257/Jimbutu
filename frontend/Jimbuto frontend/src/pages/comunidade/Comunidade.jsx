@@ -32,7 +32,16 @@ export default function Comunidade() {
   return (
     <div className="container-comunidade">
       <Cabecalho />
-
+      {
+        activarComentario && (
+          <div className="aba-comentarios">
+            <div className="cabecalho-comentarios">
+              <p>Comentarios</p>
+              <button onClick={setActivarComentario()}>X</button>
+            </div>
+          </div>
+        )
+      }
       <div className="comunidade">
         <div className="pubicacao">
           <div className="publicarIMG">
@@ -98,7 +107,7 @@ export default function Comunidade() {
               <button className="like">
                 <ThumbsUp size={30} />
               </button>
-              <button className="comentearios">
+              <button onClick={()=>setActivarComentario(true)} className="comentearios">
                 <MessageSquare size={30} />
               </button>
               <button className="repartilhar">
