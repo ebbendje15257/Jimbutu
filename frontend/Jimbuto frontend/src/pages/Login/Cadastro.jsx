@@ -45,7 +45,7 @@ export default function Cadastro() {
     setErroPass(false);
     setErroConfirmPass(false);
 
-    if (!username.trim() || !pass.trim() || !email.trim() || !pais.trim()) {
+    if (!username.trim() || !pass.trim() || !cPassValue.trim() || !email.trim() || !pais.trim()) {
       setVazio(true);
       return;
     }
@@ -70,14 +70,20 @@ export default function Cadastro() {
     formData.append("email", email);
     formData.append("pais", pais);
     formData.append("chave", chave);
-    formData.append("senha", pass);
+    formData.append("passe", pass);
 
     try {
-      const resposta = await api.post("/Cadastro", formData, {
+      const resposta = await api.post("/cadastro", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
+      if (resposta.status == 409) {
+        alert("Email já existente")
+      }
+      else if (resposta.status == 201) {
+        alert("Usuario criado com sucesso")
+      }
       console.log("Sucesso:", resposta);
       alert("Usuario criado com sucesso");
     } catch (error) {

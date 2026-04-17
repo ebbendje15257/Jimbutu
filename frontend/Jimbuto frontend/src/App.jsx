@@ -6,10 +6,11 @@ import Pesquisar from "./pages/pesquisar/Pesquisar";
 import Perfil from "./pages/perfil/Perfil";
 import Comunidade from "./pages/comunidade/Comunidade";
 
+
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={< Login/>} />
 
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/login" element={<Login />} />

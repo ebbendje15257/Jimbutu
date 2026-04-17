@@ -16,7 +16,7 @@ export default function Login() {
 
     const usuario = {
       username: inputUser.current.value,
-      senha: inputPasse.current.value,
+      passe: inputPasse.current.value,
     };
 
     if (!usuario.username.trim() || !usuario.passe.trim()) {
@@ -27,14 +27,25 @@ export default function Login() {
     setVazio(false);
 
     try {
-      const resposta = await api.post("/Login", usuario);
+      const resposta = await api.post("/login", usuario);
       console.log("Sucesso:", resposta.data);
-      //  redirecionar o usuário: navigate("/dashboard");
+    
+      if (resposta.status === 200) {  
+      alert("Login realizado com sucesso!");
+    
+        // Redirecionar para a página principal ou dashboard
+
+    }
+      
+      else {
+        alert("Login falhou. Verifique suas credenciais.");
+      }
+
     } catch (error) {
       console.error("Erro ao logar:", error);
       setErro(true);
     }
-  }
+  
 
   return (
     <div className="login">
@@ -88,4 +99,4 @@ export default function Login() {
       </p>
     </div>
   );
-}
+}}
