@@ -24,8 +24,9 @@ db.exec(`CREATE TABLE IF NOT EXISTS users(
 db.exec(`CREATE TABLE IF NOT EXISTS posts(
 
   post TEXT
+  users_id
 
-  )`)
+  )`);
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
@@ -75,9 +76,9 @@ app.post("/login", (req, res) => {
   res.status(200).json({ message: "Login bem-sucedido!" });
 });
 
-app.post("/publicacao", (req, res) =>{
-    const {post, imgPost} = req.body
-})
+app.post("/publicacao", (req, res) => {
+  const { post, imgPost } = req.body;
+});
 
 app.listen(3000, () => {
   console.log("Servidor rodando...");
