@@ -1,56 +1,52 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 .pesquisar {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #0f172a;
 }
 
+/* ===== CAIXA DE PESQUISA ===== */
 .search {
   background-color: #1e293b;
-  padding: 30px;
-  margin: 10px;
+  padding: 24px;
   width: 750px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  border-radius: 20px;
-
-  label {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-  }
+  gap: 12px;
+  border-radius: 16px;
 }
 
-.inf-name {
+.search label {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  color: #f1f5f9;
+}
+
+.barra-de-pesquisa {
   display: flex;
   align-items: center;
+  border: 1px solid #334155;
+  border-radius: 25px;
+  padding: 8px 16px;
   gap: 10px;
+  transition: border-color 0.2s;
 }
 
-.priv-icon {
-  background-color: #029b68;
-  padding-top: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 50px;
-}
+.barra-de-pesquisa:focus-within { border-color: #05d08c; }
 
 .botao-pesquisar {
   background-color: transparent;
   border: none;
-}
-
-.botao-pesquisar:hover {
   cursor: pointer;
-}
-
-.barra-de-pesquisa {
-  margin-top: 10px;
   display: flex;
-  border: 1px solid #334155;
-  border-radius: 25px;
-  padding: 8px;
-  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 #pesquisar {
@@ -58,82 +54,168 @@
   outline: none;
   border: none;
   color: white;
-  padding: 10px;
+  padding: 6px 0;
   font-size: 15px;
-
-  input::placeholder {
-    color: #888f9a;
-  }
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#pesquisar::placeholder { color: #64748b; }
+
+/* Filtros */
+.filtros-pesquisa {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-filtro {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #334155;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn-filtro:hover, .btn-filtro.activo-filtro {
+  border-color: #05d08c;
+  color: #05d08c;
+  background-color: rgba(5, 208, 140, 0.08);
+}
+
+/* ===== RESULTADOS ===== */
+.encontrado {
+  width: 750px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sem-resultados {
+  text-align: center;
+  color: #64748b;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  padding: 40px 0;
+}
+
+/* ===== CARD ===== */
 .card-encontrados {
   background-color: #1e293b;
-  width: 750px;
-  border-radius: 10px;
-  padding: 10px;
+  width: 100%;
+  border-radius: 12px;
+  padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
+  transition: background 0.15s;
 }
+
+.card-encontrados:hover { background-color: #263347; }
 
 .informacao-geral-procurado {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
 }
 
 .botao-imagem-perfil {
   background-color: transparent;
   border: none;
-}
-
-.botao-imagem-perfil:hover {
   cursor: pointer;
-  opacity: 0.8;
+  flex-shrink: 0;
 }
 
 .foto-procurado {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .informacao-procurado {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
+  min-width: 0;
 }
 
-p {
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
+.inf-name { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+.nome-procurado {
+  font-weight: 600;
+  font-size: 16px;
+  color: #f1f5f9;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.priv-icon {
+  background-color: #029b68;
+  padding: 3px 5px 2px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
 }
 
 .emaiil-pais-seguidores-procurado {
-  color: #888f9a;
+  color: #94a3b8;
+  font-size: 13px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Botão Seguir / A seguir */
 .botao-seguir {
-  background-color: #029b68;
-  padding: 10px;
-  height: 50px;
-  width: 100px;
-  margin-right: 10px;
-  border-radius: 15px;
-  color: white;
-  font-size: 20px;
+  padding: 10px 20px;
+  height: auto;
+  min-width: 90px;
+  border-radius: 12px;
+  border: none;
+  font-size: 15px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s;
+  flex-shrink: 0;
 }
 
-.botao-seguir:hover {
-  opacity: 0.8;
-  cursor: pointer;
+.botao-seguir.seguindo {
+  background-color: #334155;
+  color: #94a3b8;
+}
+
+.botao-seguir.nao-seguindo {
+  background-color: #029b68;
+  color: white;
+}
+
+.botao-seguir:hover { opacity: 0.8; }
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 800px) {
+  .search, .encontrado { width: 100%; }
+}
+
+@media (max-width: 500px) {
+  .pesquisar { padding: 12px; gap: 14px; }
+  .search { padding: 16px; border-radius: 12px; }
+  .foto-procurado { height: 60px; width: 60px; }
+  .nome-procurado { font-size: 15px; }
+  .card-encontrados { padding: 12px; }
+  .botao-seguir { padding: 8px 14px; font-size: 14px; min-width: 80px; }
+
+  /* No mobile, email fica escondido, só mostra país/seguidores */
+  .emaiil-pais-seguidores-procurado.email { display: none; }
 }

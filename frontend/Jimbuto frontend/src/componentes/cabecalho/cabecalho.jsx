@@ -37,19 +37,6 @@ export default function Cabecalho() {
       </div>
 
       <div className="abas">
-        <NavLink
-          className={({ isActive }) => (isActive ? "activo" : "nav-abas")}
-          to="/"
-        >
-          <Bot size={25} className="icon-nav" />
-        </NavLink>
-
-        <NavLink
-          className={({ isActive }) => (isActive ? "activo" : "nav-abas")}
-          to="/"
-        >
-          <Bell size={25} className="icon-nav" />
-        </NavLink>
 
         <NavLink className="nav-abas" to="/perfil">
           <img className="foto-cabecalho" src={foto} />

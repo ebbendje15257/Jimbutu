@@ -1,85 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
 .perfil {
   display: flex;
   align-items: center;
   flex-direction: column;
+  min-height: 100vh;
+  background-color: #0f172a;
 }
 
 .card-perfil {
   background-color: #1e293b;
   padding: 20px;
   width: 750px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 30px;
+  border-radius: 12px;
+  margin: 20px;
 }
 
-.imagem-perfil{
+/* ===== IMAGEM ===== */
+.imagem-perfil {
   display: flex;
   align-items: flex-end;
 }
 
-.priv{
-  background-color: #01d696;
-  margin-left: -5%;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 50px;
+.imagem-perfil img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
+.priv {
+  background-color: #01d696;
+  margin-left: -18px;
+  margin-bottom: 4px;
+  padding: 6px 8px 4px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== INFORMAÇÕES ===== */
 .informacoes-perfil {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 24px;
 }
 
 .inf-label {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #888f9a;
   margin-bottom: 5px;
-  font-size: 15px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .texto-inf-user {
-  font-size: 20px;
+  font-size: 18px;
+  color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 hr {
-  color: #05d08c;
+  border-color: #05d08c;
+  opacity: 0.3;
 }
 
+/* ===== ESTATÍSTICAS ===== */
 .estatisticas-perfil {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .estatistica-quantidade {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 4px;
+}
+
+/* ===== REDES SOCIAIS ===== */
+.redes-sociais {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .redesSociais {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
+  gap: 10px;
 }
 
 .redes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   gap: 10px;
+  flex: 1;
 }
 
 .link-redes {
   padding: 10px;
-  width: 160px;
   height: 50px;
   border-radius: 10px;
-  background-color: #888f9a;
+  background-color: #334155;
+  display: block;
+  transition: opacity 0.2s;
 }
 
 .link-redes:hover {
@@ -91,11 +130,73 @@ hr {
   padding: 8px;
   border-radius: 50px;
   color: #fff;
-  width: 50px;
-  height: 50px;
+  width: 46px;
+  height: 46px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: opacity 0.2s;
 }
 
 .botao-add-rede:hover {
   opacity: 0.8;
-  cursor: pointer;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 800px) {
+  .card-perfil {
+    width: 100%;
+    margin: 12px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 560px) {
+  .card-perfil {
+    margin: 8px;
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .imagem-perfil img {
+    height: 80px;
+    width: 80px;
+  }
+
+  .texto-inf-user {
+    font-size: 16px;
+  }
+
+  /* Redes: 2 colunas em vez de 3 */
+  .redes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .link-redes {
+    height: 44px;
+  }
+
+  .estatisticas-perfil {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .redes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .redesSociais {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .botao-add-rede {
+    align-self: flex-end;
+  }
 }
